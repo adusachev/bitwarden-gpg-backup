@@ -6,6 +6,10 @@ BW_EMAIL=your_bitwarden_email@gmail.com
 
 read -p "Bitwarden Master Password (hidden): " -s BW_PASS
 export BW_SESSION=$(bw login $BW_EMAIL $BW_PASS --raw)
+if [ -z "$BW_SESSION" ];
+then
+    exit 1
+fi
 
 EXPORT_FILE_PREFIX="bw_export_"
 TIMESTAMP=$(date "+%Y_%m_%d_%H%M%S")
