@@ -25,8 +25,7 @@ backup() {
     spin_pid=$!
    
     export BW_SESSION=$(bw login $BW_EMAIL $BW_PASS --raw)
-    if [ -z "$BW_SESSION" ];
-    then
+    if [ -z "$BW_SESSION" ]; then
         kill $spin_pid
         exit 1
     fi
