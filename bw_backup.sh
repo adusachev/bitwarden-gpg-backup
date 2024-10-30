@@ -2,6 +2,7 @@
 
 GPG_EMAIL=your_gpg_email@gmail.com
 BW_EMAIL=your_bitwarden_email@gmail.com
+EXPORT_FILE_PREFIX="bw_export_"
 
 spinner=( '|' '/' '-' '/' )
 
@@ -30,7 +31,6 @@ backup() {
         exit 1
     fi
 
-    EXPORT_FILE_PREFIX="bw_export_"
     TIMESTAMP=$(date "+%Y_%m_%d_%H%M%S")
     ENC_OUTPUT_FILE=$EXPORT_FILE_PREFIX$TIMESTAMP.enc
     bw export --raw --session $BW_SESSION --format json | gpg -o $ENC_OUTPUT_FILE -e -a -r $GPG_EMAIL
