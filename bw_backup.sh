@@ -4,7 +4,7 @@ GPG_EMAIL=your_gpg_email@gmail.com
 BW_EMAIL=your_bitwarden_email@gmail.com
 EXPORT_FILE_PREFIX="bw_export_"
 
-spinner=( '|' '/' '-' '/' )
+spinner=( '|' '/' '-' '\' )
 
 spin() {
     while [ 1 ]
